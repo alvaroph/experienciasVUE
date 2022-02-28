@@ -22,7 +22,7 @@ export default {
                     });
                 });
     },
-    addPelicula(datosPeli:Object){
+    addPelicula(datosPeli:{Title:string, Poster:string , imdbID:string, Year:string}){
       console.log("voy a añadir a r"+datosPeli.imdbID);
       
       const datosEnvio = new FormData();
@@ -49,8 +49,8 @@ export default {
 <div>
     <h1>Búsqueda de peliculas</h1>
     <input id="search" type="text" v-model="search">
-    <button class="btn btn-primary" @click="buscarPeliculas">Buscar</button
-    div class="row">
+    <button class="btn btn-primary" @click="buscarPeliculas">Buscar</button>
+    <div class="row">
     <div class="col-md-3" v-for="peli in arrayPeliculas">
     <Pelicula :datos-pelicula="peli">
       <button @click="addPelicula(peli)" :class="[peli.anadida ? 'btn-success' : 'btn-danger', 'btn']">Añadir</button>
